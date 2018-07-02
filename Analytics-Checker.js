@@ -29,22 +29,16 @@
 		if (teste2 === true) {
             var head_inner_html = document.getElementsByTagName('head')[0].childNodes;
             var myArray = Array.from(head_inner_html);
-            console.log(myArray);
             var comment_end_index = myArray.findIndex(find);
-            console.log(comment_end_index);
             if (comment_end_index == '-1') {var not_available = true;}
             else {
-            var comment_start_index = comment_end_index - 4;
-            console.log(comment_start_content);
-            var comment_start_content = head_inner_html[comment_start_index].nodeValue.trim();
-            console.log(comment_start_content);
-            var comment_start_content_divided = comment_start_content.split('-');
-            console.log(comment_start_content);
-            console.log(comment_start_content_divided[0]);
-            var comment_start_content_divided_more = comment_start_content_divided[0].split(' ');
-            var version_number = comment_start_content_divided_more[2];
+		    var comment_start_index = comment_end_index - 4;
+		    var comment_start_content = head_inner_html[comment_start_index].nodeValue.trim();
+		    var comment_start_content_divided = comment_start_content.split('-');
+		    var comment_start_content_divided_more = comment_start_content_divided[0].split(' ');
+		    var version_number = comment_start_content_divided_more[2];
             }
-			jQuery('body').prepend('<div class="checker" style="box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;cursor: initial;transition: right 0.45s linear;background:none;position:fixed;right:-45px;bottom:33%;z-index:999999;background-color:#3ab43a;color:white;width:50px;height:65px;padding:1px 1px;border-radius:0;border:none;"><span style="cursor: initial;line-height: 48px;padding: 0 14px;background:none;font-size: 35px;color:white">&check;<span class="version" style="display:block;cursor: initial;line-height: 15px;background:none;font-size: 10px;color:white;text-align: center;">' + ((not_available === true) ? 'N/A' : version_number ) + '</span><span id="hover_thingy" style="position: fixed;background:none;cursor: initial;bottom: 30%;width: 66px;height: 94px;right: -5px;"></span></div>');
+	    jQuery('body').prepend('<div class="checker" style="box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;cursor: initial;transition: right 0.45s linear;background:none;position:fixed;right:-45px;bottom:33%;z-index:999999;background-color:#3ab43a;color:white;width:50px;height:65px;padding:1px 1px;border-radius:0;border:none;"><span style="cursor: initial;line-height: 48px;padding: 0 14px;background:none;font-size: 35px;color:white">&check;<span class="version" style="display:block;cursor: initial;line-height: 15px;background:none;font-size: 10px;color:white;text-align: center;">' + ((not_available === true) ? 'N/A' : version_number ) + '</span><span id="hover_thingy" style="position: fixed;background:none;cursor: initial;bottom: 30%;width: 66px;height: 94px;right: -5px;"></span></div>');
             var right = -45;
             document.title = version_number;
         }
@@ -54,9 +48,7 @@
             var right = -35;
         }
 	}
-else {
-console.log('Not Needed');
-}
+else {}
 
 var hover = jQuery("#hover_thingy");
 var main_div = jQuery( ".checker" );
